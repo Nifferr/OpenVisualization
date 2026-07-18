@@ -1,0 +1,50 @@
+{
+  "name": "openvisualization",
+  "version": "0.13.0",
+  "description": "Open-source data visualization and BI desktop app inspired by Tableau, with more chart types, grouping options and export formats.",
+  "main": "./out/main/index.js",
+  "type": "module",
+  "license": "Apache-2.0",
+  "author": "OpenVisualization contributors",
+  "scripts": {
+    "predev": "npm run build:runtime",
+    "dev": "electron-vite dev",
+    "prebuild": "npm run build:runtime",
+    "build": "electron-vite build",
+    "build:runtime": "vite build --config vite.export-runtime.config.ts",
+    "preview": "electron-vite preview",
+    "typecheck": "tsc --noEmit -p tsconfig.web.json && tsc --noEmit -p tsconfig.node.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "package": "npm run build && electron-builder --win --config electron-builder.yml"
+  },
+  "dependencies": {
+    "@duckdb/node-api": "latest",
+    "echarts": "^5.6.0",
+    "echarts-wordcloud": "^2.1.0",
+    "exceljs": "^4.4.0",
+    "pst-extractor": "^1.12.0",
+    "xlsx": "^0.18.5",
+    "zustand": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^5.0.0",
+    "electron": "^38.0.0",
+    "electron-builder": "^26.0.0",
+    "electron-vite": "^4.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5.6.0",
+    "vite": "^7.0.0",
+    "vitest": "^4.1.10"
+  },
+  "allowScripts": {
+    "electron@38.8.6": true,
+    "electron-winstaller@5.4.0": true,
+    "esbuild@0.25.12": true,
+    "esbuild@0.28.1": true
+  }
+}
